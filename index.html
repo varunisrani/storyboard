@@ -18,7 +18,7 @@
   <meta name="twitter:image" content="static/images/teaser.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <!-- SEO keywords -->
-  <meta name="keywords" content="Story2Board, storyboard generation, diffusion, mutual attention, latent panel anchoring, visual world models, generative models, computer vision, video, DiT, Stable Diffusion 3, Flux">
+  <meta name="keywords" content="Story2Board, storyboard generation, diffusion, mutual attention, latent panel anchoring, reciprocal attention value mixing, visual world models, generative models, computer vision, video, DiT, Stable Diffusion 3, Flux">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Story2Board — Project Page</title>
@@ -41,20 +41,25 @@
 </head>
 <body>
 
+  <!-- =========================== -->
+  <!--        HERO + AUTHORS       -->
+  <!-- =========================== -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Story2Board: A Training‑Free Approach for Expressive Storyboard Generation</h1>
+
+            <!-- Authors with linked names and affiliations -->
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><a href="https://daviddinkevich.github.io" target="_blank">David Dinkevich</a><sup>1</sup>,</span>
-              <span class="author-block">Matan Levy<sup>1</sup>,</span>
-              <span class="author-block">Omri Avrahami<sup>1</sup>,</span>
-              <span class="author-block">Dvir Samuel<sup>2,3</sup>,</span>
-              <span class="author-block">Dani Lischinski<sup>1</sup></span>
+              <span class="author-block"><a href="https://daviddinkevich.github.io" target="_blank" rel="noopener">David Dinkevich</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://levymsn.github.io/" target="_blank" rel="noopener">Matan Levy</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://omriavrahami.com/" target="_blank" rel="noopener">Omri Avrahami</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://github.com/dvirsamuel/" target="_blank" rel="noopener">Dvir Samuel</a><sup>2,3</sup>,</span>
+              <span class="author-block"><a href="https://www.cs.huji.ac.il/~danix/" target="_blank" rel="noopener">Dani Lischinski</a><sup>1</sup></span>
             </div>
-            
+
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <sup>1</sup>Hebrew University of Jerusalem, Israel<br>
@@ -62,19 +67,20 @@
                 <sup>3</sup>Bar-Ilan University, Israel
               </span>
             </div>
+
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- Local Paper PDF link (place your PDF at static/pdfs/Story2Board.pdf) -->
+                <!-- Paper (disable or link later) -->
                 <span class="link-block">
-                  <a href="static/pdfs/Story2Board.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper (PDF)</span>
+                    <span>Paper (coming soon)</span>
                   </a>
                 </span>
 
-                <!-- Supplementary PDF link (optional) -->
+                <!-- Supplementary (optional) -->
                 <span class="link-block">
-                  <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
                     <span>Supplementary (coming soon)</span>
                   </a>
@@ -97,17 +103,20 @@
                 </span>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Teaser video (optional) -->
+  <!-- =========================== -->
+  <!--            TEASER           -->
+  <!-- =========================== -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video poster="static/images/teaser.jpg" id="tree" autoplay controls muted loop height="100%">
+        <video poster="static/images/teaser.jpg" id="teaser-video" autoplay controls muted loop height="100%">
           <source src="static/videos/banner_video.mp4" type="video/mp4">
         </video>
         <h2 class="subtitle has-text-centered">
@@ -117,7 +126,9 @@
     </div>
   </section>
 
-  <!-- Paper abstract -->
+  <!-- =========================== -->
+  <!--           ABSTRACT          -->
+  <!-- =========================== -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
@@ -125,7 +136,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We present <em>Story2Board</em>em>, a training-free framework for expressive storyboard generation from natural language. Existing methods narrowly focus on subject identity, overlooking key aspects of visual storytelling such as spatial composition, background evolution, and narrative pacing. To address this, we introduce a lightweight consistency framework composed of two components: <em>Latent Panel Anchoring</em>, which preserves a shared character reference across panels, and <em>Reciprocal Attention Value Mixing</em>, which softly blends visual features between token pairs with strong reciprocal attention. Together, these mechanisms enhance coherence without architectural changes or fine-tuning, enabling state-of-the-art diffusion models to generate visually diverse yet consistent storyboards. To structure generation, we use an off-the-shelf language model to convert free-form stories into grounded panel-level prompts. To evaluate, we propose the <em>Rich Storyboard Benchmark</em>, a suite of open-domain narratives designed to assess layout diversity and background-grounded storytelling, in addition to consistency. We also introduce a new <em>Scene Diversity</em> metric that quantifies spatial and pose variation across storyboards. Our qualitative and quantitative results, as well as a user study, show that Story2Board produces more dynamic, coherent, and narratively engaging storyboards than existing baselines.
+              We present <em>Story2Board</em>, a training‑free framework for expressive storyboard generation from natural language. Existing methods narrowly focus on subject identity, overlooking key aspects of visual storytelling such as spatial composition, background evolution, and narrative pacing. To address this, we introduce a lightweight consistency framework composed of two components: <em>Latent Panel Anchoring</em>, which preserves a shared character reference across panels, and <em>Reciprocal Attention Value Mixing</em>, which softly blends visual features between token pairs with strong reciprocal attention. Together, these mechanisms enhance coherence without architectural changes or fine‑tuning, enabling state‑of‑the‑art diffusion models to generate visually diverse yet consistent storyboards. To structure generation, we use an off‑the‑shelf language model to convert free‑form stories into grounded panel‑level prompts. To evaluate, we propose the <em>Rich Storyboard Benchmark</em> and a <em>Scene Diversity</em> metric that quantify layout variation and background‑grounded storytelling, in addition to consistency.
             </p>
           </div>
         </div>
@@ -133,54 +144,69 @@
     </div>
   </section>
 
-  <!-- Image carousel -->
+  <!-- =========================== -->
+  <!--           METHOD            -->
+  <!-- =========================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              Overview of our training‑free pipeline. A language model decomposes the story into a shared reference prompt and a sequence of scene‑level panel prompts. Each reference–panel pair is co‑denoised with a diffusion transformer, then decoded into a two‑panel image; we retain the bottom panels as outputs. Latent Panel Anchoring (LPA) processes all pairs alongside a shared reference latent, and Reciprocal Attention Value Mixing (RAVM) softly aligns features between mutually attending token pairs during denoising.
+            </p>
+          </div>
+          <!-- Placeholder: Overview figure -->
+          <figure style="margin:18px 0">
+            <img src="static/images/method_overview.png" alt="Method overview: LLM Director, LPA co‑denoising, and decoding."/>
+            <figcaption class="has-text-grey">Method overview. Replace with your Figure 3 when ready.</figcaption>
+          </figure>
+
+          <div class="content has-text-justified">
+            <p>
+              RAVM details. During each attention layer, we compute mutual attention between top and bottom panels and mix value vectors for high‑confidence token correspondences. This reinforces character identity only where the model already exhibits aligned cross‑panel attention, preserving layout diversity.
+            </p>
+          </div>
+          <!-- Placeholder: RAVM figure -->
+          <figure style="margin:18px 0">
+            <img src="static/images/method_ravm.png" alt="RAVM: mutual attention maps and value‑mixing between token pairs."/>
+            <figcaption class="has-text-grey">RAVM visualization. Replace with your Figure 4 when ready.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== -->
+  <!--     QUALITATIVE RESULTS     -->
+  <!-- =========================== -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
+        <h2 class="title is-3 has-text-centered">Qualitative Comparisons</h2>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <img src="static/images/carousel1.jpg" alt="Storyboard example 1"/>
-            <h2 class="subtitle has-text-centered">Coherent identity with varied framing.</h2>
+            <img src="static/images/qual_compare_1.jpg" alt="Storyboard comparison grid 1"/>
+            <h2 class="subtitle has-text-centered">Full‑sequence comparison. Our method yields greater variation in composition and background detail, while preserving identity.</h2>
           </div>
           <div class="item">
-            <img src="static/images/carousel2.jpg" alt="Storyboard example 2"/>
-            <h2 class="subtitle has-text-centered">Richer backgrounds and spatial composition.</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/carousel3.jpg" alt="Storyboard example 3"/>
-            <h2 class="subtitle has-text-centered">Dynamic scale and pose across panels.</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/carousel4.jpg" alt="Storyboard example 4"/>
-            <h2 class="subtitle has-text-centered">Comparison vs. baselines (coming soon).</h2>
+            <img src="static/images/qual_compare_2.jpg" alt="Storyboard comparison grid 2"/>
+            <h2 class="subtitle has-text-centered">Special capabilities: variable character count, multiple same‑type characters, and background‑level consistency.</h2>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- YouTube presentation (optional) -->
+  <!-- =========================== -->
+  <!--        MORE EXAMPLES        -->
+  <!-- =========================== -->
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3">Video Presentation</h2>
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <div class="publication-video">
-              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video carousel (optional) -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
         <h2 class="title is-3">More Results</h2>
-        <div id="results-carousel" class="carousel results-carousel">
+        <div id="results-carousel-2" class="carousel results-carousel">
           <div class="item item-video1">
             <video poster="" id="video1" autoplay controls muted loop height="100%">
               <source src="static/videos/carousel1.mp4" type="video/mp4">
@@ -201,29 +227,47 @@
     </div>
   </section>
 
-  <!-- Poster or paper embed -->
-<!--   <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title">Poster</h2>
-        <!-- Replace with your poster file when ready -->
-        <iframe src="static/pdfs/Story2Board.pdf" width="100%" height="550"></iframe>
+  <!-- =========================== -->
+  <!--     QUANTITATIVE RESULTS    -->
+  <!-- =========================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Quantitative Results</h2>
+
+          <figure style="margin:18px 0">
+            <img src="static/images/quant_vqa_dreamsim.png" alt="Prompt alignment (VQAScore) vs. character consistency (DreamSim)."/>
+            <figcaption class="has-text-grey">Prompt alignment (VQAScore) vs. character consistency (DreamSim). Our method dominates the Pareto front.</figcaption>
+          </figure>
+
+          <figure style="margin:18px 0">
+            <img src="static/images/quant_diversity.png" alt="Scene diversity vs. character consistency."/>
+            <figcaption class="has-text-grey">Scene diversity vs. character consistency. Strong identity preservation with rich layout variation.</figcaption>
+          </figure>
+
+          <figure style="margin:18px 0">
+            <img src="static/images/length_scaling.png" alt="Prompt alignment vs. storyboard length."/>
+            <figcaption class="has-text-grey">Prompt alignment vs. storyboard length. Our method remains stable for longer sequences.</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
- -->
-  <!-- BibTeX -->
+
+  <!-- =========================== -->
+  <!--            BIBTEX           -->
+  <!-- =========================== -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{dinkevich2025story2board,
-        title   = {Story2Board: A Training-Free Approach for Expressive Storyboard Generation},
-        author  = {Dinkevich, David and Levy, Matan and Avrahami, Omri and Samuel, Dvir and Lischinski, Dani},
-        year    = {2025},
-        journal = {Under review},
-        note    = {arXiv: coming soon},
-        url     = {https://daviddinkevich.github.io/Story2Board/}
-      }
+  title   = {Story2Board: A Training-Free Approach for Expressive Storyboard Generation},
+  author  = {Dinkevich, David and Levy, Matan and Avrahami, Omri and Samuel, Dvir and Lischinski, Dani},
+  year    = {2025},
+  journal = {Under review},
+  note    = {arXiv: coming soon},
+  url     = {https://daviddinkevich.github.io/Story2Board/}
 }</code></pre>
     </div>
   </section>
