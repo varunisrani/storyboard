@@ -6,7 +6,7 @@
   <meta name="description" content="Story2Board is a training‑free framework for generating expressive, coherent multi‑panel storyboards from text while preserving character identity and layout diversity.">
   <meta property="og:title" content="Story2Board: A Training-Free Approach for Expressive Storyboard Generation"/>
   <meta property="og:description" content="Training‑free storyboard generation with character consistency and dynamic layouts."/>
-  <meta property="og:url" content="https://daviddinkevich.github.io/story2board/"/>
+  <meta property="og:url" content="https://daviddinkevich.github.io/Story2Board/"/>
   <!-- 1200×630 recommended -->
   <meta property="og:image" content="static/images/teaser.jpg" />
   <meta property="og:image:width" content="1200"/>
@@ -48,17 +48,20 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Story2Board: A Training‑Free Approach for Expressive Storyboard Generation</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
+              <span class="author-block"><a href="https://daviddinkevich.github.io" target="_blank">David Dinkevich</a><sup>1</sup>,</span>
+              <span class="author-block">Matan Levy<sup>1</sup>,</span>
+              <span class="author-block">Omri Avrahami<sup>1</sup>,</span>
+              <span class="author-block">Dvir Samuel<sup>2,3</sup>,</span>
+              <span class="author-block">Dani Lischinski<sup>1</sup></span>
+            </div>
+            
+            <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://daviddinkevich.github.io" target="_blank">David Dinkevich</a>
+                <sup>1</sup>Hebrew University of Jerusalem, Israel<br>
+                <sup>2</sup>OriginAI, Israel<br>
+                <sup>3</sup>Bar-Ilan University, Israel
               </span>
             </div>
-
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">The Hebrew University of Jerusalem<br>Under review, 2025</span>
-              <!-- Remove or edit the equal contribution note as needed -->
-            </div>
-
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- Local Paper PDF link (place your PDF at static/pdfs/Story2Board.pdf) -->
@@ -79,7 +82,7 @@
 
                 <!-- Github link (code to be released later) -->
                 <span class="link-block">
-                  <a href="https://github.com/daviddinkevich/story2board" target="_blank" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
+                  <a href="https://github.com/daviddinkevich/Story2Board" target="_blank" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code (coming soon)</span>
                   </a>
@@ -122,7 +125,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We introduce <em>Story2Board</em>, a training‑free framework that turns natural‑language stories into expressive, coherent multi‑panel storyboards. Our approach augments powerful text‑to‑image diffusion transformers with two lightweight mechanisms: a <em>Latent Panel Anchoring</em> setup that co‑denoises each scene alongside a shared reference panel, and a <em>Mutual‑Attention value mixing</em> step that softly blends appearance features between reciprocally attending token pairs. This retains layout flexibility—allowing pose, scale, and background to evolve—while preserving character identity across panels. We additionally propose a Rich Storyboard Benchmark and a Scene/Character Diversity metric to evaluate expressive storytelling. Experiments indicate stronger narrative coherence and more dynamic compositions compared with recent baselines.
+              We present <em>Story2Board</em>em>, a training-free framework for expressive storyboard generation from natural language. Existing methods narrowly focus on subject identity, overlooking key aspects of visual storytelling such as spatial composition, background evolution, and narrative pacing. To address this, we introduce a lightweight consistency framework composed of two components: <em>Latent Panel Anchoring</em>, which preserves a shared character reference across panels, and <em>Reciprocal Attention Value Mixing</em>, which softly blends visual features between token pairs with strong reciprocal attention. Together, these mechanisms enhance coherence without architectural changes or fine-tuning, enabling state-of-the-art diffusion models to generate visually diverse yet consistent storyboards. To structure generation, we use an off-the-shelf language model to convert free-form stories into grounded panel-level prompts. To evaluate, we propose the <em>Rich Storyboard Benchmark</em>, a suite of open-domain narratives designed to assess layout diversity and background-grounded storytelling, in addition to consistency. We also introduce a new <em>Scene Diversity</em> metric that quantifies spatial and pose variation across storyboards. Our qualitative and quantitative results, as well as a user study, show that Story2Board produces more dynamic, coherent, and narratively engaging storyboards than existing baselines.
             </p>
           </div>
         </div>
@@ -199,7 +202,7 @@
   </section>
 
   <!-- Poster or paper embed -->
-  <section class="hero is-small is-light">
+<!--   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
         <h2 class="title">Poster</h2>
@@ -208,18 +211,19 @@
       </div>
     </div>
   </section>
-
+ -->
   <!-- BibTeX -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{dinkevich2025story2board,
-  title   = {Story2Board: A Training-Free Approach for Expressive Storyboard Generation},
-  author  = {Dinkevich, David},
-  year    = {2025},
-  journal = {Under review},
-  pdf     = {https://daviddinkevich.github.io/story2board/static/pdfs/Story2Board.pdf},
-  url     = {https://daviddinkevich.github.io/story2board/}
+        title   = {Story2Board: A Training-Free Approach for Expressive Storyboard Generation},
+        author  = {Dinkevich, David and Levy, Matan and Avrahami, Omri and Samuel, Dvir and Lischinski, Dani},
+        year    = {2025},
+        journal = {Under review},
+        note    = {arXiv: coming soon},
+        url     = {https://daviddinkevich.github.io/Story2Board/}
+      }
 }</code></pre>
     </div>
   </section>
