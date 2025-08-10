@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Social meta: fill accurately—this is your business card on the web -->
+  <!-- Social meta: fill accurately--this is your business card on the web -->
   <meta name="description" content="Story2Board is a training‑free framework for generating expressive, coherent multi‑panel storyboards from text while preserving character identity and layout diversity.">
   <meta property="og:title" content="Story2Board: A Training-Free Approach for Expressive Storyboard Generation"/>
   <meta property="og:description" content="Training‑free storyboard generation with character consistency and dynamic layouts."/>
@@ -21,7 +21,7 @@
   <meta name="keywords" content="Story2Board, storyboard generation, diffusion, mutual attention, latent panel anchoring, reciprocal attention value mixing, visual world models, generative models, computer vision, video, DiT, Stable Diffusion 3, Flux">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Story2Board — Project Page</title>
+  <title>Story2Board--Project Page</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -77,9 +77,9 @@
                     <span>PDF (coming soon)</span>
                   </a>
                 </span>
-
-<!--                 <!-- Supplementary (optional) -->
-                <span class="link-block">
+     
+                <!-- Supplementary (optional) -->
+<!--                 <span class="link-block">
                   <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
                     <span>Supplementary (coming soon)</span>
@@ -101,6 +101,13 @@
                     <span>Code (coming soon)</span>
                   </a>
                 </span>
+                <!-- Benchmark link (to be released later) -->
+                <span class="link-block">
+                  <a href="https://github.com/daviddinkevich/Story2Board" target="_blank" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
+                    <span class="icon"><i class="fas fa-database"></i></span>
+                    <span>Benchmark (coming soon)</span>
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -116,7 +123,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="static/images/teaser_long.png" alt="Story2Board teaser" style="width: 100%; height: auto;" />
+        <img src="static/images/teaser.png" alt="Story2Board teaser" style="width: 100%; height: auto;" />
         <h2 class="subtitle has-text-centered">
           <span style="font-variant: small-caps;">Story2Board</span>: 
           Training-free storyboard generation that balances identity consistency with cinematic layout diversity.
@@ -147,15 +154,15 @@
   <!--           METHOD            -->
   <!-- =========================== -->
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container wide">
       <div class="columns is-centered has-text-centered">
         <div class="column is-10">
           <h2 class="title is-3">Method</h2>
           <div class="content has-text-justified">
           <p>
-            Our goal is to represent a narrative as a coherent sequence of storyboard panels —
+            Our goal is to represent a narrative as a coherent sequence of storyboard panels --
             each depicting a different scene while preserving the identity and appearance of
-            the main character. To achieve this, we generate all panels in a batch, with one
+            the main character(s). To achieve this, we generate all panels in a batch, with one
             <em>reference panel</em> that serves as a shared visual reference. During generation,
             we maintain consistency by replacing the reference region of each latent with the
             corresponding region from the batch’s reference panel, and we apply
@@ -179,15 +186,20 @@
           <div class="content has-text-justified">
             <p>
               RAVM details. While an reference panel helps maintain overall identity consistency across scenes,
-              it alone is not enough to capture fine-grained details. Subtle features—like the
-              exact shape of a hand or the expression on a face—can still drift. Our
+              it alone is not enough to capture fine-grained details. Subtle features--like the
+              exact shape of a hand or the expression on a face--can still drift. Our
               <strong>Reciprocal Attention Value Mixing (RAVM)</strong> addresses this by
               identifying individual tokens in the reference and target panels that strongly
               attend to each other across the batch. We then blend their value representations
               in self-attention, ensuring that the most semantically aligned regions reinforce
-              each other’s appearance. Unlike prior approaches that rely on coarse
+              each other’s appearance.
+            </p>
+            <p>
+              Unlike prior approaches that rely on coarse
               cross-attention maps to locate characters, RAVM operates directly at the token
               level, enabling a more precise and fine-grained blending scheme.
+              Also, RAVM only modifies <em>value embeddings</em>, which affects appearance 
+              without interfering with the scene layout generated by the model.
             </p>
           </div>
           <!-- Placeholder: RAVM figure -->
@@ -199,7 +211,7 @@
               The red and green circles mark semantically corresponding character features (the hand) in the reference and target panels, respectively.
               <strong>Right:</strong> Heatmaps showing reciprocal attention scores at denoising step&nbsp;12 of&nbsp;28.
               <strong>Top-right:</strong> For each token in the top panel, we compute its reciprocal attention with the green-circled token in the bottom panel.
-              <strong>Bottom-right:</strong> The reverse — each token in the bottom panel is scored based on reciprocal attention with the red-circled token in the top panel.
+              <strong>Bottom-right:</strong> The reverse--each token in the bottom panel is scored based on reciprocal attention with the red-circled token in the top panel.
               In both cases, the hand token in the opposite panel receives the strongest reciprocal attention, showing that RAVM identifies semantically aligned token pairs for value mixing.
               This reinforces visual consistency without altering spatial composition.
             </figcaption>
@@ -222,7 +234,7 @@
             <h2 class="subtitle has-text-centered">
               Example storyboard generated with our method from a short fantasy narrative.  
               Our approach preserves the character’s identity and distinctive details across
-              diverse scenes — from forest landscapes to glowing lakes — while allowing each
+              diverse scenes--from forest landscapes to glowing lakes--while allowing each
               panel to feature a unique cinematic composition. This balance between consistency
               and layout diversity enables richer visual storytelling than methods that fix the
               character’s pose or appearance too rigidly.
@@ -240,7 +252,7 @@
   <!-- =========================== -->
   <!--        MORE EXAMPLES        -->
   <!-- =========================== -->
-  <section class="hero is-small is-light">
+  <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3">More Results</h2>
@@ -254,10 +266,9 @@
             <img src="static/images/carousel2.png" alt="Result 2" />
           </div>
   
-<!--           <div class="item">
+          <div class="item">
             <img src="static/images/carousel3.png" alt="Result 3" />
           </div>
-   -->
         </div>
       </div>
     </div>
