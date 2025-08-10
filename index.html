@@ -74,15 +74,23 @@
                 <span class="link-block">
                   <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper (coming soon)</span>
+                    <span>PDF (coming soon)</span>
                   </a>
                 </span>
 
-                <!-- Supplementary (optional) -->
+<!--                 <!-- Supplementary (optional) -->
                 <span class="link-block">
                   <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
                     <span>Supplementary (coming soon)</span>
+                  </a>
+                </span>
+ -->
+                <!-- ArXiv abstract Link (coming soon) -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv (coming soon)</span>
                   </a>
                 </span>
 
@@ -91,14 +99,6 @@
                   <a href="https://github.com/daviddinkevich/Story2Board" target="_blank" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code (coming soon)</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link (coming soon) -->
-                <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv (coming soon)</span>
                   </a>
                 </span>
               </div>
@@ -118,6 +118,7 @@
       <div class="hero-body">
         <img src="static/images/teaser.png" alt="Story2Board teaser" style="width: 100%; height: auto;" />
         <h2 class="subtitle has-text-centered">
+          <span style="font-variant: small-caps;">Story2Board</span>: 
           Training-free storyboard generation that balances identity consistency with cinematic layout diversity.
         </h2>
       </div>
@@ -167,25 +168,12 @@
           <!-- Placeholder: Overview figure -->
           <figure style="margin:18px 0">
             <img src="static/images/overview_figure.png" alt="Method overview: LLM Director, LPA co‑denoising, and decoding."/>
-          <figcaption class="has-text-grey">
-            <strong>Fig. 3.</strong> Overview of our training-free storyboard generation pipeline.
-            Given a natural-language narrative (e.g., “Once upon a time, a boy set off on an adventure…”),
-            our method proceeds in three stages:
-            <ol style="margin:0.5em 0 0 1.25em;">
-              <li><em>LLM Director.</em> Decomposes the story into a shared <em>reference panel prompt</em>
-                  and a sequence of <em>scene-level prompts</em>.</li>
-              <li><em>Co-denoising with LPA and RAVM.</em> A batch of <em>n</em> two-panel images is generated,
-                  with the top half of each image conditioned on the same reference prompt and the bottom half
-                  on one of the scene prompts. During denoising, we apply <em>Latent Panel Anchoring (LPA)</em>:
-                  after each transformer block, the latent representations [R, p<sub>i</sub>] evolve to
-                  [R′<sub>i</sub>, p′<sub>i</sub>], and the top half of each latent is replaced with the version
-                  from the first batch element, denoted R′ = R′<sub>1</sub>, to ensure a synchronized reference across scenes.
-                  Inside each transformer block, we also apply <em>Reciprocal Attention Value Mixing (RAVM)</em>
-                  following the self-attention computation.</li>
-              <li><em>Decode & crop.</em> The final denoised latents are decoded into two-panel images and cropped
-                  to retain only the bottom sub-panels as the final storyboard.</li>
-            </ol>
-          </figcaption>
+            <figcaption class="has-text-grey">
+              <strong>Fig. 3.</strong> Our training-free storyboard generation pipeline.
+              (1) <em>LLM Director</em>: Decomposes the story into a shared reference panel prompt and scene-level prompts.
+              (2) <em>Co-denoising with LPA and RAVM</em>: Generates a batch of two-panel images, syncing the reference panel across the batch after each DiT block and blending features for consistency.
+              (3) <em>Decode & crop</em>: Produces the final storyboard panels.
+            </figcaption>
           </figure>
 
           <div class="content has-text-justified">
@@ -206,20 +194,14 @@
           <figure style="margin:18px 0">
             <img src="static/images/mutual_attention.png" alt="RAVM: mutual attention maps and value‑mixing between token pairs."/>
             <figcaption class="has-text-grey">
-                Visualization of <em>Reciprocal Attention Value Mixing (RAVM)</em> in action.
-                <strong>Left:</strong> A generated 2-panel output from our method, with the top
-                panel serving as the shared reference. The red and green circles mark
-                semantically corresponding character features (the hand) in the reference and
-                target panels, respectively.
-                <strong>Right:</strong> Heatmaps showing reciprocal attention scores at
-                denoising step 12 of 28. Top-right: for each token in the top panel, we compute
-                its reciprocal attention with the green-circled token in the bottom panel.
-                Bottom-right: the reverse—each token in the bottom panel is scored based on
-                reciprocal attention with the red-circled token in the top panel. In both cases,
-                the hand token in the opposite panel receives the strongest reciprocal
-                attention, validating that RAVM successfully identifies semantically aligned
-                token pairs for value mixing. This reinforces visual consistency without
-                altering spatial composition.
+              <strong>Fig. 4.</strong> Visualization of <em>Reciprocal Attention Value Mixing (RAVM)</em> in action.
+              <strong>Left:</strong> A generated two-panel output from our method, with the top panel serving as the shared reference.
+              The red and green circles mark semantically corresponding character features (the hand) in the reference and target panels, respectively.
+              <strong>Right:</strong> Heatmaps showing reciprocal attention scores at denoising step&nbsp;12 of&nbsp;28.
+              <strong>Top-right:</strong> For each token in the top panel, we compute its reciprocal attention with the green-circled token in the bottom panel.
+              <strong>Bottom-right:</strong> The reverse — each token in the bottom panel is scored based on reciprocal attention with the red-circled token in the top panel.
+              In both cases, the hand token in the opposite panel receives the strongest reciprocal attention, showing that RAVM identifies semantically aligned token pairs for value mixing.
+              This reinforces visual consistency without altering spatial composition.
             </figcaption>
           </figure>
         </div>
@@ -284,7 +266,7 @@
   <!-- =========================== -->
   <!--     QUANTITATIVE RESULTS    -->
   <!-- =========================== -->
-  <section class="section">
+<!--   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column column is-10">
@@ -307,7 +289,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- =========================== -->
   <!--            BIBTEX           -->
