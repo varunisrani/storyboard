@@ -148,17 +148,17 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-10">
           <h2 class="title is-3">Method</h2>
           <div class="content has-text-justified">
           <p>
             Our goal is to represent a narrative as a coherent sequence of storyboard panels —
             each depicting a different scene while preserving the identity and appearance of
             the main character. To achieve this, we generate all panels in a batch, with one
-            <em>anchor panel</em> that serves as a shared visual reference. During generation,
-            we maintain consistency by replacing the anchor region of each latent with the
-            corresponding region from the batch’s anchor panel, and we apply
-            <strong>Reciprocal Attention Value Mixing (RAVM)</strong> to blend the anchor’s
+            <em>reference panel</em> that serves as a shared visual reference. During generation,
+            we maintain consistency by replacing the reference region of each latent with the
+            corresponding region from the batch’s reference panel, and we apply
+            <strong>Reciprocal Attention Value Mixing (RAVM)</strong> to blend the reference’s
             features into the target panels’ self-attention layers. This combination
             enforces identity consistency while allowing each panel to retain its own
             scene layout and composition.
@@ -179,7 +179,7 @@
                   on one of the scene prompts. During denoising, we apply <em>Latent Panel Anchoring (LPA)</em>:
                   after each transformer block, the latent representations [R, p<sub>i</sub>] evolve to
                   [R′<sub>i</sub>, p′<sub>i</sub>], and the top half of each latent is replaced with the version
-                  from the first batch element, denoted R′ = R′<sub>1</sub>, to ensure a synchronized anchor across scenes.
+                  from the first batch element, denoted R′ = R′<sub>1</sub>, to ensure a synchronized reference across scenes.
                   Inside each transformer block, we also apply <em>Reciprocal Attention Value Mixing (RAVM)</em>
                   following the self-attention computation.</li>
               <li><em>Decode & crop.</em> The final denoised latents are decoded into two-panel images and cropped
@@ -190,7 +190,7 @@
 
           <div class="content has-text-justified">
             <p>
-              RAVM details. While an anchor panel helps maintain overall identity consistency across scenes,
+              RAVM details. While an reference panel helps maintain overall identity consistency across scenes,
               it alone is not enough to capture fine-grained details. Subtle features—like the
               exact shape of a hand or the expression on a face—can still drift. Our
               <strong>Reciprocal Attention Value Mixing (RAVM)</strong> addresses this by
@@ -206,7 +206,6 @@
           <figure style="margin:18px 0">
             <img src="static/images/mutual_attention.png" alt="RAVM: mutual attention maps and value‑mixing between token pairs."/>
             <figcaption class="has-text-grey">
-              <figcaption>
                 Visualization of <em>Reciprocal Attention Value Mixing (RAVM)</em> in action.
                 <strong>Left:</strong> A generated 2-panel output from our method, with the top
                 panel serving as the shared reference. The red and green circles mark
@@ -231,7 +230,7 @@
   <!-- =========================== -->
   <!--     QUALITATIVE RESULTS     -->
   <!-- =========================== -->
-  <section class="hero is-small">
+<!--   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Qualitative Comparisons</h2>
@@ -255,7 +254,7 @@
       </div>
     </div>
   </section>
-
+ -->
   <!-- =========================== -->
   <!--        MORE EXAMPLES        -->
   <!-- =========================== -->
@@ -288,7 +287,7 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column column is-10">
           <h2 class="title is-3">Quantitative Results</h2>
 
           <figure style="margin:18px 0">
