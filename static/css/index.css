@@ -146,9 +146,9 @@ figure figcaption ol { list-style: decimal; margin:.5rem 0 0 1.25rem; }
 figure figcaption li { margin:.25rem 0; }
 
 /* Wider containers site-wide */
-.container.wide { max-width: 1280px; }   /* try 1200–1360 to taste */
+.container.wide { max-width: 1200px; }   /* try 1200–1360 to taste */
 @media (min-width: 1408px){
-  .container.wide { max-width: 1280px; }
+  .container.wide { max-width: 1200px; }
 }
 
 
