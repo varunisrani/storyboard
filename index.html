@@ -8,14 +8,14 @@
   <meta property="og:description" content="Training‑free storyboard generation with character consistency and dynamic layouts."/>
   <meta property="og:url" content="https://daviddinkevich.github.io/Story2Board/"/>
   <!-- 1200×630 recommended -->
-  <meta property="og:image" content="static/images/teaser.jpg" />
+  <meta property="og:image" content="static/images/teaser.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
   <meta name="twitter:title" content="Story2Board: A Training-Free Approach for Expressive Storyboard Generation">
   <meta name="twitter:description" content="Training‑free storyboard generation with character consistency and dynamic layouts.">
   <!-- 1200×600 recommended -->
-  <meta name="twitter:image" content="static/images/teaser.jpg">
+  <meta name="twitter:image" content="static/images/teaser.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- SEO keywords -->
   <meta name="keywords" content="Story2Board, storyboard generation, diffusion, mutual attention, latent panel anchoring, reciprocal attention value mixing, visual world models, generative models, computer vision, video, DiT, Stable Diffusion 3, Flux">
@@ -116,7 +116,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video poster="static/images/teaser.jpg" id="teaser-video" autoplay controls muted loop height="100%">
+        <video poster="static/images/teaser.png" id="teaser-video" autoplay controls muted loop height="100%">
           <source src="static/videos/banner_video.mp4" type="video/mp4">
         </video>
         <h2 class="subtitle has-text-centered">
@@ -159,7 +159,7 @@
           </div>
           <!-- Placeholder: Overview figure -->
           <figure style="margin:18px 0">
-            <img src="static/images/method_overview.png" alt="Method overview: LLM Director, LPA co‑denoising, and decoding."/>
+            <img src="static/images/overview_figure.png" alt="Method overview: LLM Director, LPA co‑denoising, and decoding."/>
             <figcaption class="has-text-grey">Method overview. Replace with your Figure 3 when ready.</figcaption>
           </figure>
 
@@ -170,7 +170,7 @@
           </div>
           <!-- Placeholder: RAVM figure -->
           <figure style="margin:18px 0">
-            <img src="static/images/method_ravm.png" alt="RAVM: mutual attention maps and value‑mixing between token pairs."/>
+            <img src="static/images/mutual_attention.png" alt="RAVM: mutual attention maps and value‑mixing between token pairs."/>
             <figcaption class="has-text-grey">RAVM visualization. Replace with your Figure 4 when ready.</figcaption>
           </figure>
         </div>
@@ -187,11 +187,11 @@
         <h2 class="title is-3 has-text-centered">Qualitative Comparisons</h2>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <img src="static/images/qual_compare_1.jpg" alt="Storyboard comparison grid 1"/>
+            <img src="static/images/qualitative_eval.png" alt="Storyboard comparison grid 1"/>
             <h2 class="subtitle has-text-centered">Full‑sequence comparison. Our method yields greater variation in composition and background detail, while preserving identity.</h2>
           </div>
           <div class="item">
-            <img src="static/images/qual_compare_2.jpg" alt="Storyboard comparison grid 2"/>
+            <img src="static/images/full_story.png" alt="Full story comparison"/>
             <h2 class="subtitle has-text-centered">Special capabilities: variable character count, multiple same‑type characters, and background‑level consistency.</h2>
           </div>
         </div>
