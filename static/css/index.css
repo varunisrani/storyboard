@@ -133,5 +133,22 @@ body {
   font-size: smaller;
 }
 
+/* Left-align figcaptions, even inside centered columns */
+.has-text-centered figure figcaption,
+figure figcaption {
+  text-align: left !important;
+  margin-top: .6rem;
+  color: #6b7280;           /* optional: subtle gray */
+  font-size: .95rem;
+  line-height: 1.45;
+}
+figure figcaption ol { list-style: decimal; margin:.5rem 0 0 1.25rem; }
+figure figcaption li { margin:.25rem 0; }
+
+/* Wider containers site-wide */
+.container.wide { max-width: 1280px; }   /* try 1200–1360 to taste */
+@media (min-width: 1408px){
+  .container.wide { max-width: 1280px; }
+}
 
 
