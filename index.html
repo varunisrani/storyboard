@@ -123,7 +123,13 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="static/images/teaser_stacked_2.png" alt="Story2Board teaser" style="width: 100%; height: auto;" />
+<!--         <img src="static/images/teaser_stacked_2.png" alt="Story2Board teaser" style="width: 100%; height: auto;" /> -->
+        <img 
+  src="teaser-800.webp" 
+  srcset="teaser-800.webp 800w, teaser-1600.webp 1600w" 
+  sizes="(max-width: 800px) 100vw, 800px"
+  alt="Teaser image">
+
         <h2 class="subtitle has-text-centered">
           <span style="font-variant: small-caps;">Story2Board</span>: 
           Training-free storyboard generation that balances identity consistency with cinematic layout diversity.
