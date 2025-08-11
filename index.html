@@ -124,11 +124,17 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
 <!--         <img src="static/images/teaser_stacked_2.png" alt="Story2Board teaser" style="width: 100%; height: auto;" /> -->
-        <img 
-  src="static/images/teaser-800.webp" 
-  srcset="static/images/teaser-800.webp 800w, static/images/teaser-1600.webp 1600w" 
-  sizes="(max-width: 800px) 100vw, 800px"
-  alt="Teaser image">
+<img
+  src="static/images/teaser-1200.webp"
+  srcset="
+    static/images/teaser-800.webp 800w,
+    static/images/teaser-1200.webp 1200w,
+    static/images/teaser-1600.webp 1600w,
+    static/images/teaser-2400.webp 2400w"
+  sizes="(min-width: 1216px) 1100px, 100vw"
+  width="1100" height="618"
+  loading="eager" decoding="async" fetchpriority="high"
+  alt="Story2Board teaser">
 
         <h2 class="subtitle has-text-centered">
           <span style="font-variant: small-caps;">Story2Board</span>: 
