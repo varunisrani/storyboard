@@ -17,11 +17,15 @@ We present **Story2Board**, a training-free framework for expressive storyboard 
 We recommend a fresh Conda environment with Python 3.12.
 
 ```bash
-# 1) Create and activate env
-conda create -n story2board python=3.12 -y
+# 1) Clone the repository
+git clone https://github.com/DavidDinkevich/Story2Board.git
+cd Story2Board
+
+# 2) Create and activate env
+conda create -n story2board python=3.12
 conda activate story2board
 
-# 2) Install dependencies
+# 3) Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -47,14 +51,10 @@ python main.py   --subject "SUBJECT_NAME"   --ref_panel_prompt "REFERENCE_PANEL_
 ### Concrete example
 
 ```bash
-python main.py   --subject "smiling boy"   --ref_panel_prompt "clearly visible and centered in a sunlit train yard, warm golden-hour light"   --panel_prompts     "sitting on a broken crate, sketching the shadows of overhead wires"     "watching rats scurry past graffiti-covered pillars"     "peering through a chain-link fence at a passing freight train"   --output_dir outputs/smiling_boy_trainyard
+python main.py   --subject "fox with shimmering fur and glowing eyes"   --ref_panel_prompt "stepping onto a mossy stone path under twilight trees"   --panel_prompts     "bounding across a fallen tree over a mist-covered ravine glowing faintly with constellations"     "perched atop a broken archway of ancient stone, vines and silver moss hanging down, the twilight sky glowing behind him"     "watching a meteor shower from the edge of a luminous lake that reflects the stars perfectly"   --output_dir outputs/smiling_boy_trainyard
 ```
 
 This will generate a storyboard where the **top** panel is the reference, and each **bottom** panel reuses the same character identity while varying the scene/action.
-
-> Notes:
-> - By default the script sets a seed (`--seed 40`) and uses the **same initial noise** across the batch (`--same_noise`), making panel comparisons cleaner.  
-> - Additional knobs (guidance, RAVM ranges, diffusion steps) exist but aren’t required for a first run.
 
 ---
 
@@ -72,7 +72,7 @@ This will generate a storyboard where the **top** panel is the reference, and ea
 
 ---
 
-## BibTeX
+<!-- ## BibTeX
 
 ```bibtex
 @article{dinkevich2025story2board,
@@ -84,10 +84,10 @@ This will generate a storyboard where the **top** panel is the reference, and ea
 ```
 
 ---
-
+ -->
 ## Acknowledgements
 
-This repository builds on the excellent open-source ecosystems of **PyTorch** and **Hugging Face Diffusers**, and uses **FLUX.1-dev** weights as the base T2I model. Our README style and repo organization take inspiration from public research codebases such as [Stable Flow](https://github.com/snap-research/stable-flow).
+This repository builds on the excellent open-source ecosystems of **PyTorch** and **Hugging Face Diffusers**, and uses **FLUX.1-dev** weights as the base T2I model.
 
 ---
 
