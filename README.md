@@ -10,6 +10,12 @@
 
 We present **Story2Board**, a training-free framework for expressive storyboard generation from natural language. Existing methods narrowly focus on subject identity, overlooking key aspects of visual storytelling such as spatial composition, background evolution, and narrative pacing. To address this, we introduce a lightweight consistency framework composed of two components: **Latent Panel Anchoring**, which preserves a shared character reference across panels, and **Reciprocal Attention Value Mixing (RAVM)**, which softly blends visual features between token pairs with strong reciprocal attention. Together, these mechanisms enhance coherence without architectural changes or fine-tuning, enabling state-of-the-art diffusion models to generate visually diverse yet consistent storyboards. We convert free-form stories into grounded panel-level prompts with an off-the-shelf LLM, and evaluate on a new **Rich Storyboard Benchmark** that measures layout diversity, background-grounded storytelling, and consistency. Qualitative/quantitative results and a user study show that Story2Board produces more dynamic, coherent, and narratively engaging storyboards than existing baselines.
 
+<p>
+    <img src="docs/teaser.webp" width="800px"/>  
+    <br/>
+    A training-free method for storyboard generation that balances identity consistency with cinematic layout diversity.
+</p>
+
 ---
 
 ## Environment Setup
