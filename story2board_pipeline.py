@@ -79,7 +79,7 @@ class Story2BoardPipeline(FluxPipeline):
             device,
             generator,
             latents,
-        )
+        )[0]
 
         self.scheduler.set_timesteps(num_inference_steps, device=device, mu=4.0)
         timesteps = self.scheduler.timesteps
