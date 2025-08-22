@@ -1,4 +1,4 @@
-# Story2Board: Training-Free, Consistent & Expressive Storyboard Generation
+# Story2Board: A Training‑Free Approach for Expressive Storyboard Generation
 
 **Project page:** https://daviddinkevich.github.io/Story2Board  
 **Paper (arXiv):** _coming soon_  
