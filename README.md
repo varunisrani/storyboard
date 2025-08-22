@@ -18,9 +18,17 @@ We present **Story2Board**, a training-free framework for expressive storyboard 
 
 ---
 
-## Environment Setup
+## ⚙️ Installation
+
+### Platform Support
+- ✅ Officially supported: **Linux**, Python **3.10/3.11**, CUDA **12.x**
+- 💻 Windows / macOS: not officially tested, but you can try with the alternative requirements file: `requirements_all_platforms.txt`
 
 We recommend a fresh Conda environment with Python 3.12.
+
+---
+
+### 1) Clone the repository
 
 ```bash
 # 1) Clone the repository
