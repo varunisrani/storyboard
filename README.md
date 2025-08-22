@@ -57,7 +57,7 @@ python main.py   --subject "SUBJECT_NAME"   --ref_panel_prompt "REFERENCE_PANEL_
 ### Concrete example
 
 ```bash
-python main.py   --subject "fox with shimmering fur and glowing eyes"   --ref_panel_prompt "stepping onto a mossy stone path under twilight trees"   --panel_prompts     "bounding across a fallen tree over a mist-covered ravine glowing faintly with constellations"     "perched atop a broken archway of ancient stone, vines and silver moss hanging down, the twilight sky glowing behind him"     "watching a meteor shower from the edge of a luminous lake that reflects the stars perfectly"   --output_dir outputs/smiling_boy_trainyard
+python main.py   --subject "fox with shimmering fur and glowing eyes"   --ref_panel_prompt "stepping onto a mossy stone path under twilight trees"   --panel_prompts     "bounding across a fallen tree over a mist-covered ravine glowing faintly with constellations"     "perched atop a broken archway of ancient stone, vines and silver moss hanging down, the twilight sky glowing behind him"     "watching a meteor shower from the edge of a luminous lake that reflects the stars perfectly"   --output_dir outputs
 ```
 
 This will generate a storyboard where the **top** panel is the reference, and each **bottom** panel reuses the same character identity while varying the scene/action.
