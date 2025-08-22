@@ -1,7 +1,7 @@
 # Story2Board: A Training‑Free Approach for Expressive Storyboard Generation
 
 **Project page:** https://daviddinkevich.github.io/Story2Board  
-**Paper (arXiv):** _coming soon_  
+**Paper (arXiv):** https://arxiv.org/abs/2508.09983
 **Code:** this repo
 
 ---
