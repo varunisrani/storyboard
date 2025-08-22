@@ -119,6 +119,8 @@ class Story2BoardTransformer2DModel(FluxTransformer2DModel):
                 )
 
         attn_store = joint_attention_kwargs.get('attn_store', None)
+        n_prompt_tokens = joint_attention_kwargs.get('n_prompt_tokens', 0)
+        n_image_tokens = joint_attention_kwargs.get('n_image_tokens', 0)
 
         hidden_states = self.x_embedder(hidden_states)
 
@@ -176,6 +178,10 @@ class Story2BoardTransformer2DModel(FluxTransformer2DModel):
                     joint_attention_kwargs=joint_attention_kwargs,
                 )
                 
+            # Latent Panel Anchoring (LPA):
+            # Anchor the first panel's latents across subsequent panels
+            hidden_states[1:, :hidden_states.shape[1]//2, :] = hidden_states[0, :hidden_states.shape[1]//2, :]
+                
             # controlnet residual
             if controlnet_block_samples is not None:
                 interval_control = len(self.transformer_blocks) / len(controlnet_block_samples)
@@ -208,7 +214,12 @@ class Story2BoardTransformer2DModel(FluxTransformer2DModel):
                     image_rotary_emb=image_rotary_emb,
                     joint_attention_kwargs=joint_attention_kwargs,
                 )
-                
+                        
+            # Latent Panel Anchoring (LPA):
+            # Anchor the first panel's latents across subsequent panels
+            hidden_states[1:, n_prompt_tokens : n_prompt_tokens + n_image_tokens // 2, :] = \
+                hidden_states[0, n_prompt_tokens : n_prompt_tokens + n_image_tokens // 2, :]
+
             # controlnet residual
             if controlnet_single_block_samples is not None:
                 interval_control = len(self.single_transformer_blocks) / len(controlnet_single_block_samples)
