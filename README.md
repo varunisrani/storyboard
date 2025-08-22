@@ -78,19 +78,22 @@ This will generate a storyboard where the **top** panel is the reference, and ea
 
 ---
 
-<!-- ## BibTeX
+## Changelog
+
+- **21 Aug 2025**: Fixed missing line for **Latent Panel Anchoring (LPA)** in the released code (commit [34537e0](https://github.com/DavidDinkevich/Story2Board/commit/34537e02eac4e108fe1f8dae16e901d681af8887)).  
+  - Restores expected behavior described in the paper.  
+
+## BibTeX
 
 ```bibtex
 @article{dinkevich2025story2board,
-  title   = {Story2Board: Training-Free, Consistent and Expressive Storyboard Generation},
-  author  = {Dinkevich, David and Levy, Matan and Avrahami, Omri and Samuel, Dvir and Lischinski, Dani},
-  journal = {arXiv preprint arXiv:xxxx.xxxxx},
-  year    = {2025}
+  title={Story2Board: A Training-Free Approach for Expressive Storyboard Generation},
+  author={Dinkevich, David and Levy, Matan and Avrahami, Omri and Samuel, Dvir and Lischinski, Dani},
+  journal={arXiv preprint arXiv:2508.09983},
+  year={2025}
 }
 ```
 
----
- -->
 ## Acknowledgements
 
 This repository builds on the excellent open-source ecosystems of **PyTorch** and **Hugging Face Diffusers**, and uses **FLUX.1-dev** weights as the base T2I model.
