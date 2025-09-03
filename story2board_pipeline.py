@@ -91,7 +91,7 @@ class Story2BoardPipeline(FluxPipeline):
                 if do_classifier_free_guidance:
                     latent_model_input = torch.cat([latent_model_input] * 2)
 
-                with self.transformer.mid_block.register_forward_hook(
+                with self.transformer.transformer_blocks.register_forward_hook(
                     self.get_attention_mix_hook(
                         i, first_mixing_block, last_mixing_block, first_mixing_denoising_step, last_mixing_denoising_step
                     )
