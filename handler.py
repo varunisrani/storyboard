@@ -13,6 +13,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+import runpod
 import torch
 from PIL import Image
 
@@ -207,18 +208,19 @@ def generate_storyboard(params: Dict[str, Any]) -> Dict[str, Any]:
         }
     }
 
-def handler(event: Dict[str, Any]) -> Dict[str, Any]:
+def handler(job: Dict[str, Any]) -> Dict[str, Any]:
     """
     Main handler function for RunPod serverless
     """
     try:
         print("Story2Board Handler - Starting...")
-        print(f"Event: {json.dumps(event, indent=2)}")
         
-        # Get input from event
-        job_input = event.get('input', {})
+        # Get input from job (RunPod format)
+        job_input = job.get('input', {})
         if not job_input:
             return {"error": "No input provided"}
+        
+        print(f"Job input: {json.dumps(job_input, indent=2)}")
         
         # Parse and validate input
         print("Parsing input parameters...")
@@ -243,18 +245,7 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
             "traceback": traceback.format_exc()
         }
 
-# For local testing
+# Start the RunPod serverless handler
 if __name__ == "__main__":
-    # Test the handler locally
-    test_input = {
-        "input": {
-            "SUBJECT": "cute robot",
-            "REF_PANEL_PROMPT": "standing in a colorful garden",
-            "PANEL_PROMPTS": "waving hello,picking flowers",
-            "SEED": "42",
-            "N_DIFF_STEPS": "20"
-        }
-    }
-    
-    result = handler(test_input)
-    print("Test result:", json.dumps(result, indent=2)[:500] + "...")
+    print("Starting Story2Board RunPod Serverless Handler...")
+    runpod.serverless.start({"handler": handler})

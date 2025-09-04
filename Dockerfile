@@ -68,5 +68,5 @@ echo ""\n\
 echo "Container is ready for commands..."\n\
 /bin/bash' > /app/start.sh && chmod +x /app/start.sh
 
-# Default command
-CMD ["/app/start.sh"]
+# Default command - Use handler.py for RunPod serverless
+CMD ["python3", "-u", "handler.py"]
