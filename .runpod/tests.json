@@ -1,0 +1,71 @@
+{
+  "tests": [
+    {
+      "name": "basic_storyboard_generation",
+      "input": {
+        "SUBJECT": "cute robot",
+        "REF_PANEL_PROMPT": "standing in a colorful garden",
+        "PANEL_PROMPTS": "waving hello,picking flowers",
+        "GUIDANCE_SCALE": "3.5",
+        "N_DIFF_STEPS": "20",
+        "SEED": "42",
+        "RAVM_MIXING_COEF": "0.5",
+        "SAME_NOISE": "true"
+      },
+      "timeout": 300000
+    },
+    {
+      "name": "fantasy_character_test",
+      "input": {
+        "SUBJECT": "mystical dragon with iridescent scales",
+        "REF_PANEL_PROMPT": "perched on a mountain peak at sunset",
+        "PANEL_PROMPTS": "soaring through clouds,breathing magical fire",
+        "GUIDANCE_SCALE": "4.0",
+        "N_DIFF_STEPS": "28",
+        "SEED": "123",
+        "RAVM_MIXING_COEF": "0.6"
+      },
+      "timeout": 400000
+    },
+    {
+      "name": "fast_preview_test",
+      "input": {
+        "SUBJECT": "friendly cat",
+        "REF_PANEL_PROMPT": "sitting by a sunny window",
+        "PANEL_PROMPTS": "stretching lazily",
+        "GUIDANCE_SCALE": "3.0",
+        "N_DIFF_STEPS": "15",
+        "SEED": "999"
+      },
+      "timeout": 200000
+    }
+  ],
+  "config": {
+    "gpuTypeId": "NVIDIA GeForce RTX 4090",
+    "gpuCount": 1,
+    "env": [
+      {
+        "key": "CUDA_VISIBLE_DEVICES",
+        "value": "0"
+      },
+      {
+        "key": "NVIDIA_VISIBLE_DEVICES",
+        "value": "all"
+      },
+      {
+        "key": "NVIDIA_DRIVER_CAPABILITIES",
+        "value": "compute,utility"
+      }
+    ],
+    "allowedCudaVersions": [
+      "12.7",
+      "12.6",
+      "12.5",
+      "12.4",
+      "12.3",
+      "12.2",
+      "12.1",
+      "12.0"
+    ]
+  }
+}

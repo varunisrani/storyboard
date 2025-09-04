@@ -1,0 +1,120 @@
+{
+  "title": "Story2Board: Training-Free Storyboard Generation",
+  "description": "Generate expressive storyboards from natural language using FLUX.1-dev with custom attention mechanisms for character consistency and narrative diversity",
+  "type": "serverless",
+  "category": "image",
+  "iconUrl": "https://raw.githubusercontent.com/varunisrani/storyboard/main/docs/teaser.webp",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 50,
+    "presets": [
+      {
+        "name": "Quick Generation",
+        "defaults": {
+          "SUBJECT": "mystical fox with shimmering fur",
+          "REF_PANEL_PROMPT": "standing on a moonlit forest path",
+          "PANEL_PROMPTS": "leaping over a sparkling stream,perched on an ancient stone",
+          "GUIDANCE_SCALE": "3.5",
+          "N_DIFF_STEPS": "28",
+          "SEED": "42"
+        }
+      },
+      {
+        "name": "High Quality",
+        "defaults": {
+          "SUBJECT": "elegant dragon",
+          "REF_PANEL_PROMPT": "soaring above misty mountains at dawn",
+          "PANEL_PROMPTS": "diving through cloud formations,landing on castle towers",
+          "GUIDANCE_SCALE": "4.0",
+          "N_DIFF_STEPS": "50",
+          "RAVM_MIXING_COEF": "0.6"
+        }
+      },
+      {
+        "name": "Fast Preview",
+        "defaults": {
+          "SUBJECT": "cute robot companion",
+          "REF_PANEL_PROMPT": "standing in a colorful garden",
+          "PANEL_PROMPTS": "watering flowers,sitting among roses",
+          "GUIDANCE_SCALE": "3.0",
+          "N_DIFF_STEPS": "20",
+          "SEED": "123"
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "SUBJECT",
+        "input": {
+          "name": "Main Subject",
+          "type": "string",
+          "description": "The main character or subject for the storyboard (e.g., 'mystical fox with golden fur')",
+          "default": "cute robot companion"
+        }
+      },
+      {
+        "key": "REF_PANEL_PROMPT",
+        "input": {
+          "name": "Reference Panel Prompt",
+          "type": "string",
+          "description": "Description for the reference (top) panel that establishes the character",
+          "default": "standing in a colorful garden with blooming flowers"
+        }
+      },
+      {
+        "key": "PANEL_PROMPTS",
+        "input": {
+          "name": "Panel Prompts",
+          "type": "string",
+          "description": "Comma-separated prompts for additional panels (e.g., 'waving hello,picking flowers,dancing in sunlight')",
+          "default": "waving hello to butterflies,picking bright red flowers"
+        }
+      },
+      {
+        "key": "GUIDANCE_SCALE",
+        "input": {
+          "name": "Guidance Scale",
+          "type": "string",
+          "description": "Classifier-free guidance scale (higher = closer to prompt, lower = more diverse)",
+          "default": "3.5"
+        }
+      },
+      {
+        "key": "N_DIFF_STEPS",
+        "input": {
+          "name": "Diffusion Steps",
+          "type": "string",
+          "description": "Number of denoising steps (more steps = higher quality, longer generation time)",
+          "default": "28"
+        }
+      },
+      {
+        "key": "SEED",
+        "input": {
+          "name": "Random Seed",
+          "type": "string",
+          "description": "Random seed for reproducible results (leave empty for random)",
+          "default": "42"
+        }
+      },
+      {
+        "key": "RAVM_MIXING_COEF",
+        "input": {
+          "name": "RAVM Mixing Coefficient",
+          "type": "string",
+          "description": "Reciprocal Attention Value Mixing strength (0.0-1.0, higher = more consistency)",
+          "default": "0.5"
+        }
+      },
+      {
+        "key": "SAME_NOISE",
+        "input": {
+          "name": "Use Same Noise",
+          "type": "string",
+          "description": "Use same initial noise for all panels (true/false)",
+          "default": "true"
+        }
+      }
+    ]
+  }
+}

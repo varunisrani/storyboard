@@ -1,5 +1,7 @@
 # Story2Board: A Training‑Free Approach for Expressive Storyboard Generation
 
+[![RunPod](https://api.runpod.io/badge/varunisrani/storyboard)](https://console.runpod.io/hub/varunisrani/storyboard)
+
 **Project page:** https://daviddinkevich.github.io/Story2Board  
 **Paper (arXiv):** https://arxiv.org/abs/2508.09983
 **Code:** this repo
