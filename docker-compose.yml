@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  story2board:
+    build: .
+    container_name: story2board
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./outputs:/app/outputs
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    command: /bin/bash
